@@ -4,7 +4,7 @@
 **June 18th, 2-4pm**  
 *Turing  Auditorium at Polya Hall*
 
-Welcome to the GitHub repository for the Melbourne workshop. All the code and packages included in this material is already installed on our RStudio server. You'll simply need to login [here](http://rstudio.ropensci.org/) with the credentials provided to you at the workshop.
+Welcome to the GitHub repository for the Stanford workshop. All the code and packages included in this material is already installed on our RStudio server. You'll simply need to login [here](http://rstudio.ropensci.org/) with the credentials provided to you at the workshop.
 
 You'll be able to copy-paste all of the code provided here directly into RStudio.
 
