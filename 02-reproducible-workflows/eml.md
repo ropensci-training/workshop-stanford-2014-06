@@ -75,7 +75,7 @@ dats <- data.set(dat, col.defs = col.defs, unit.defs = unit.defs)
 abstract <- "Landings data for several species by year, from the OpenFisheries database"
 ```
 
-Login into figshare and upload your data + metadata
+### Login into figshare and upload your data + metadata
 
 ```r
 # Logging into figshare
@@ -88,17 +88,19 @@ options(FigshareKey = "kCV1UF2V1Bjw01TybvzDCg")
 options(FigsharePrivateKey = "dGLFrnXeBjXi6qdsO6vwAg")
 ```
 
-## Now we are ready to write out the `EML`
+### Now we are ready to write out the `EML`
 
 ```r
 eml_write(dat = dats, 
+	# Please change this title so your submission appears unique during this workshop
 	title = "Fisheries Landings Data for cod", 
 	abstract = abstract, 
     creator = "Karthik Ram <karthik@ropensci.org>", 
     file = "landings.xml")
  ```
  
-## and upload the data to figshare
+##3  and upload the data to figshare 
+ 
  ```r
 eml_publish("landings.xml", 
 	description = abstract, 
