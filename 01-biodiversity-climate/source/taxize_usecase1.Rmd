@@ -1,7 +1,6 @@
 ## taxize use case #1
 
-__We begin with a list of species, then fix any incorrect taxonomic names by cross referencing them against various taxonomic databses. Finally we map their distributions from occurrence records.__
-
+__Submit a list of scientific names to obtain the accepted name across various taxonomic sources. Finally we map their distributions of these species from occurrence records.__
 
 ```{r, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(
