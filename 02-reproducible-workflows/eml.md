@@ -91,7 +91,8 @@ options(FigsharePrivateKey = "dGLFrnXeBjXi6qdsO6vwAg")
 ## Now we are ready to write out the `EML`
 
 ```r
-eml_write(dat = dats, title = "Fisheries Landings Data for cod", 
+eml_write(dat = dats, 
+	title = "Fisheries Landings Data for cod", 
 	abstract = abstract, 
     creator = "Karthik Ram <karthik@ropensci.org>", 
     file = "landings.xml")
