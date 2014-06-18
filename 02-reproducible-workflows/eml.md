@@ -1,3 +1,5 @@
+# A complete example of downloading, documenting, and depositing data
+
 ```r
 library(rfisheries)
 library(plyr)
