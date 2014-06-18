@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .deck-container {
   font-family: "Gill Sans MT", Calibri, sans-serif;
-  font-size: 1.25em;
+  font-size: 1.35em;
   background: url('groovepaper.png') repeat;
 }
 
@@ -125,7 +125,7 @@
 }
 .deck-container .slide pre {
   border-color: #dbe5ee;
-  font: normal 15px/20px Menlo, consolas, mono;
+  font: normal 20px/24px Menlo, consolas, mono;
   background: #fefefe;
   line-height: 1.5em;
   position: relative;
