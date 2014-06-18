@@ -5,6 +5,7 @@ library(reshape2)
 library(ggplot2)
 ```
 
+# First we download fisheries data for 4 commercially important anchovy fisheries
 
 ```r
 species <- of_species_codes()
@@ -14,14 +15,17 @@ names(by_species) <- who
 dat <- melt(by_species, id = c("catch", "year"))[, -5]
 ```
 
+##  A little bit of data cleanup
+
 ```r
 dat <- dat[-3]
 names(dat) <- c("catch", "year", "a3_code")
 write.csv(dat, file = "dat.csv")
 ```
 
+## Next we plot the data
+
 ```
-# plot the data
 ggplot(dat, aes(year, catch)) + 
 geom_line() + 
 facet_wrap( ~ a3_code, scales = "free_y") +
