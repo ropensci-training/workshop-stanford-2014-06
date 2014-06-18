@@ -1,6 +1,6 @@
 ## `rgbif` : Ecological niche modelling (species distribution modelling)
 
-In this example we plot actual occurrence data for *Bradypus* species against a single predictor variable, `BIO1` (annual mean temperature). This is only ont step in a species distribution modelling nworkflow.
+In this example we plot actual occurrence data for *Bradypus* species against a single predictor variable, `BIO1` (annual mean temperature). This is only ont step in a species distribution modeling workflow.
 
 This example can be done using BISON data as well with our `rbison` package.
 
