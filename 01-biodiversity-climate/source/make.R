@@ -1,9 +1,12 @@
 library(stringr)
 if(str_detect(getwd(), "source")) {
+
 files <- dir(pattern = ".Rmd")
+path <- normalizePath("../")
+opts_knit$set(base.dir = path)
 l_ply(files, function(x) {
-        knitr(x, output = paste0("../", substr(x, 1, nchar(x)-4), ".md"))
- }
+        knit(x, file.path(path, sub('.Rmd$', '.md', x)))
+ })
 
 } else {
 	stop("Can't execute this code outside the source dir. Please set appropriate directory first")
