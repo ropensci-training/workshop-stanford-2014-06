@@ -1,0 +1,33 @@
+## NOAA climate data: Plot sea ice data
+
+### Map sea ice for 12 years, for April only, for the North pole
+
+```{r loadpkgs, warning=FALSE, message=FALSE}
+library(rnoaa)
+library(scales)
+library(ggplot2)
+library(plyr)
+```
+
+### Get URLs for data
+
+```{r geturls, warning=FALSE, comment=NA, message=FALSE}
+urls <- seaiceeurls(mo='Apr', pole='N')[1:12]
+```
+
+### Download sea ice data
+
+```{r getdata, warning=FALSE, comment=NA, message=FALSE}
+out <- llply(urls, noaa_seaice, storepath="~/")
+names(out) <- seq(1979, 1990, 1)
+df <- ldply(out)
+```
+
+### Plot data
+
+```{r plot, warning=FALSE, comment=NA, message=FALSE}
+ggplot(df, aes(long, lat, group=group)) + 
+  geom_polygon(fill = "steelblue") +
+  theme_ice() +
+  facet_wrap(~ .id)
+```
