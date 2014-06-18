@@ -5,7 +5,7 @@ library(reshape2)
 library(ggplot2)
 ```
 
-# First we download fisheries data for 4 commercially important anchovy fisheries
+### First we download fisheries data for 4 commercially important anchovy fisheries
 
 ```r
 species <- of_species_codes()
@@ -15,7 +15,7 @@ names(by_species) <- who
 dat <- melt(by_species, id = c("catch", "year"))[, -5]
 ```
 
-##  A little bit of data cleanup
+###  A little bit of data cleanup
 
 ```r
 dat <- dat[-3]
@@ -23,7 +23,7 @@ names(dat) <- c("catch", "year", "a3_code")
 write.csv(dat, file = "dat.csv")
 ```
 
-## Next we plot the data
+### Next we plot the data
 
 ```
 ggplot(dat, aes(year, catch)) + 
@@ -32,6 +32,7 @@ facet_wrap( ~ a3_code, scales = "free_y") +
 ggtitle("Fisheries trends for commercially important Anchovy fisheries")
 ```
 
+### Now we manipulate the data into a useful format with variables typecast correctly
 ```r
 library(dplyr)
 code_names <- species[which(species$a3_code %in% who), ] %>% 
@@ -43,6 +44,8 @@ dat$year <- as.Date(as.character(dat$year), '%Y')
 
 
 Now we write the `XML` for the data and deposit this to figshare.
+
+### As a last step, we define the columns and the units.
 
 ```r
 require(EML)
