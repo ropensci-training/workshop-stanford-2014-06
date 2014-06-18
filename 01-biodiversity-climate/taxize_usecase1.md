@@ -1,5 +1,6 @@
 ## taxize use case #1 - 
-## We begin with a list of species, then fix any incorrect taxonomic names by cross referencing them against various taxonomic databses. Finally we map their distributions from occurrence records.
+
+__We begin with a list of species, then fix any incorrect taxonomic names by cross referencing them against various taxonomic databses. Finally we map their distributions from occurrence records.__
 
 
 
