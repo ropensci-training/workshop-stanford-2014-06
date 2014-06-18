@@ -1,4 +1,4 @@
-## rgbif use case No. 2 - Biodiversity comparisons across cities
+## `rgbif` use case No. 2 - Biodiversity comparisons across cities
 
 In this example, we compare biodiversity in different regsions using GBIF data from rgbif.
 
