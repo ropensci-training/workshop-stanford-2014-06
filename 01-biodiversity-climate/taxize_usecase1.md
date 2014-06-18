@@ -1,4 +1,6 @@
-## taxize use case No. 1 - From a species list to cleaning names to a map of their occurrences.
+## taxize use case #1 - 
+## We begin with a list of species, then fix any incorrect taxonomic names by cross referencing them against various taxonomic databses. Finally we map their distributions from occurrence records.
+
 
 
 
@@ -13,7 +15,7 @@ library(ggplot2)
 library(plyr)
 ```
 
-Most of us will start out with a species list, something like the one below. Note that each of the names is spelled incorrectly.
+Most of us will start out with a species list, similar to the one below. Note that are intentionally spelled incorrectly. In a real situation, a researcher might read a `csv`/`xls` file and work through a column of species names.
 
 
 ```r
@@ -29,18 +31,18 @@ splist <- c("Helanthus annuus",
 "Bartlettia scapposa")
 ```
 
-There are many ways to resolve taxonomic names in taxize. Of course, the ideal name resolver will do the work behind the scenes for you so that you don't have to do things like fuzzy matching. There are a few services in taxize like this we can choose from: the Global Names Resolver service from EOL (see function *gnr_resolve*) and the Taxonomic Name Resolution Service from iPlant (see function *tnrs*). In this case let's use the function *tnrs*.
+There are many ways to resolve taxonomic names using `taxize`. Of course, the ideal name resolver will do the work behind the scenes for you so that you don't have rely on fuzzy matching. There are a few services in taxize like this we can choose from: the Global Names Resolver service from EOL (see function `gnr_resolve`) and the Taxonomic Name Resolution Service from iPlant (see function `tnrs`). In this case we use the function `tnrs`.
 
 
 ```r
-# The tnrs function accepts a vector of 1 or more
+# The tnrs function accepts a single input or a vector
 splist_tnrs <- tnrs(query = splist, getpost = "POST")
 
-# Remove some extra fields
+# Next we remove some extra fields
 (splist_tnrs <- splist_tnrs[, !names(splist_tnrs) %in% c("matchedName", "annotations", "uri")])
 
-# Note the scores. They suggest that there were no perfect matches, but they were all very close, ranging from 0.77 to 0.99 (1 is the highest). 
-# Let's assume the names in the "acceptedName" column are correct (and they should be).
+# At this point pay attention to the scores. They suggest that there were no perfect matches, but almost all were extremely close, ranging from `0.77` to `0.99` (1 being the highest). 
+# Let's assume the names in the "acceptedname" column are correct (and they should be in most cases).
 
 # So here's our updated species list
 (splist <- as.character(splist_tnrs$acceptedname))
@@ -79,9 +81,12 @@ temp <- data.frame(t(x[, 1]))
 names(temp) <- x[ , 2]
 temp[, c("kingdom", "phylum", "order", "family")]
 }
-names(class_list) <- splist # assign spnames to list
+# We name the list using spnames
+names(class_list) <- splist
 class_df <- ldply(class_list, gethiernames)
-allnames_df <- merge(data.frame(splist), class_df, by.x = "splist", by.y = ".id")
+allnames_df <- merge(data.frame(splist), class_df, 
+  by.x = "splist", 
+  by.y = ".id")
 
 # Now that we have allnames_df, we can start to see some relationships among species simply by their shared taxonomic names
 allnames_df[1:2, ]
@@ -93,21 +98,25 @@ allnames_df[1:2, ]
 |  Abies magnifica   | Viridiplantae | Streptophyta |  Pinales  |  Pinaceae  |
 | Bartlettia scaposa | Viridiplantae | Streptophyta | Asterales | Asteraceae |
 
-Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a  API that we can interact with programmatically from R.
+Using the species list, with the corrected names, we can now search for occurrence data. The Global Biodiversity Information Facility (GBIF) has the largest collection of records data, and has a API that we can interact with programmatically from R.
 
 
-### Get occurences 
+### Obtain occurences 
 
 
 ```r
-occur_list <- occurrencelist_many(as.character(allnames_df$splist), coordinatestatus = TRUE, maxresults = 50,  fixnames = "change")
+occur_list <- occurrencelist_many(as.character(allnames_df$splist), 
+  coordinatestatus = TRUE, 
+  maxresults = 50,  
+  fixnames = "change")
 ```
 
-### Make a map
+### Finally we generate a map
 
 
 ```r
-gbifmap_list(occur_list) + coord_equal()
+gbifmap_list(occur_list) + 
+coord_equal()
 ```
 
 ![plot of chunk makemap](figure/makemap.png) 

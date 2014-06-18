@@ -1,6 +1,8 @@
-## taxize use case No. 2 - Make a phylogeny from species names alone
+## Another Taxize use case
+### Making a phylogeny directly from species names.
 
-There is only functionality for plants right now in taxize. We hope to add more taxan groups soon.
+This functionality is currently only supported for plants. However we do expect to improve this by adding other taxonomic groups shortly.
+
 
 ```{r, echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(
@@ -34,7 +36,7 @@ splist <- c("Helianthus annuus",
 "Bartlettia scaposa")
 ```
 
-### Phylomatic is a web service with an API that we can use to get a phylogeny. Fetch phylogeny from phylomatic 
+### Phylomatic is a web service with an API that we can use to obtain a phylogeny. We now fetch phylogeny from phylomatic 
 
 ```{r phylogeny}
 phylogeny <- phylomatic_tree(taxa = splist,
@@ -51,7 +53,8 @@ clean = "true")
 ### Format tip-labels 
 
 ```{r}
-phylogeny$tip.label <- taxize_capwords(phylogeny$tip.label, onlyfirst = TRUE)
+phylogeny$tip.label <- taxize_capwords(phylogeny$tip.label, 
+	onlyfirst = TRUE)
 ```
 
 ### Plot phylogeny 

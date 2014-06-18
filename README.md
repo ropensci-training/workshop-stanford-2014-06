@@ -10,7 +10,7 @@ You'll be able to copy-paste all of the code provided here directly into RStudio
 
 * Login at [**rstudio.ropensci.org**](http://rstudio.ropensci.org/)  
 
-*Note: Server is not on at all times. However you should be able to install packages locally at any time.*
+*Note: Server is not turned on at all times. However you should be able to install packages locally at any time.*
 
 
 --- 
@@ -22,7 +22,7 @@ You'll be able to copy-paste all of the code provided here directly into RStudio
 |**Introduction to rOpenSci** [slides](http://ropensci.github.io/workshop-stanford-2014-06/00-introduction/intro_slides/index.html) | 15: 15:15 |
 |**rOpenSci demos 1** *Biodiversity records, taxonomic name resolution, climate mapping*  | 15:15-15:35 |
 |**rOpenSci demos 2** *Reproducible workflows, sharing and reusing data and analyses*  [slides](http://ropensci.github.io//workshop-stanford-2014-06/02-reproducible-workflows/slides/index.html) | 15:35 - 15:50 |
-|**Wrap up, questions and discussion**  | 15:50 - ... |
+|**Wrap up, questions and discussion**  | 15:50 → ? |
 
 ## Feedback
 

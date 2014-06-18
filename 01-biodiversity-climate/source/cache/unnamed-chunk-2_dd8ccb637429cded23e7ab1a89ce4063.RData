@@ -639,11 +639,11 @@ A
 1026
 1
 262153
-51
-.cache/getgbifdata_cc4200bc84c3950bdc45b012e3a5d7e6
+55
+.cache/unnamed-chunk-2_dd8ccb637429cded23e7ab1a89ce4063
 16
 1
 262153
-141
-\n```r\noccur_list\040<-\040occurrencelist_many(as.character(allnames_df$splist),\040coordinatestatus\040=\040TRUE,\040maxresults\040=\04050,\040\040fixnames\040=\040\"change\")\n```
+89
+\n```r\nphylogeny$tip.label\040<-\040taxize_capwords(phylogeny$tip.label,\040\n\tonlyfirst\040=\040TRUE)\n```
 254

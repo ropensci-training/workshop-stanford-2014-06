@@ -639,11 +639,11 @@ A
 1026
 1
 262153
-47
-.cache/makemap_ffb113fbcf26a5c25d4b148b22dbc363
+54
+.cache/classification_e358a38ac87574975ea1b6b5933ff59a
 16
 1
 262153
-97
-\n```r\ngbifmap_list(occur_list)\040+\040coord_equal()\n```\n\n![plot\040of\040chunk\040makemap](figure/makemap.png)\040
+772
+\n```r\n#\040Get\040UIDs\040for\040species\040through\040NCBI\nuids\040<-\040get_uid(sciname\040=\040splist,\040verbose\040=\040FALSE)\n\n#\040Let\'s\040get\040classifications\040from\040ITIS\040using\040Taxonomic\040Serial\040Numbers.\040Note\040that\040we\040could\040use\040uBio\040instead.\nclass_list\040<-\040classification(uids)\n\n#\040And\040we\040can\040attach\040these\040names\040to\040our\040allnames\040data.frame\n\ngethiernames\040<-\040function(x)\040{\ntemp\040<-\040data.frame(t(x[,\0401]))\nnames(temp)\040<-\040x[\040,\0402]\ntemp[,\040c(\"kingdom\",\040\"phylum\",\040\"order\",\040\"family\")]\n}\n#\040We\040name\040the\040list\040using\040spnames\nnames(class_list)\040<-\040splist\nclass_df\040<-\040ldply(class_list,\040gethiernames)\nallnames_df\040<-\040merge(data.frame(splist),\040class_df,\040\n\040\040by.x\040=\040\"splist\",\040\n\040\040by.y\040=\040\".id\")\n\n#\040Now\040that\040we\040have\040allnames_df,\040we\040can\040start\040to\040see\040some\040relationships\040among\040species\040simply\040by\040their\040shared\040taxonomic\040names\nallnames_df[1:2,\040]\n```
 254

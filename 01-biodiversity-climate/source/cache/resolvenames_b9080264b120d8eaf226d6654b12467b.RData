@@ -639,11 +639,11 @@ A
 1026
 1
 262153
-54
-.cache/classification_ed2b49962716d168e301af12cbc118f0
+52
+.cache/resolvenames_b9080264b120d8eaf226d6654b12467b
 16
 1
 262153
-758
-\n```r\n#\040Get\040UIDs\040for\040species\040through\040NCBI\nuids\040<-\040get_uid(sciname\040=\040splist,\040verbose\040=\040FALSE)\n\n#\040Let\'s\040get\040classifications\040from\040ITIS\040using\040Taxonomic\040Serial\040Numbers.\040Note\040that\040we\040could\040use\040uBio\040instead.\nclass_list\040<-\040classification(uids)\n\n#\040And\040we\040can\040attach\040these\040names\040to\040our\040allnames\040data.frame\n\ngethiernames\040<-\040function(x)\040{\ntemp\040<-\040data.frame(t(x[,\0401]))\nnames(temp)\040<-\040x[\040,\0402]\ntemp[,\040c(\"kingdom\",\040\"phylum\",\040\"order\",\040\"family\")]\n}\nnames(class_list)\040<-\040splist\040#\040assign\040spnames\040to\040list\nclass_df\040<-\040ldply(class_list,\040gethiernames)\nallnames_df\040<-\040merge(data.frame(splist),\040class_df,\040by.x\040=\040\"splist\",\040by.y\040=\040\".id\")\n\n#\040Now\040that\040we\040have\040allnames_df,\040we\040can\040start\040to\040see\040some\040relationships\040among\040species\040simply\040by\040their\040shared\040taxonomic\040names\nallnames_df[1:2,\040]\n```
+627
+\n```r\n#\040The\040tnrs\040function\040accepts\040a\040single\040input\040or\040a\040vector\nsplist_tnrs\040<-\040tnrs(query\040=\040splist,\040getpost\040=\040\"POST\")\n\n#\040Next\040we\040remove\040some\040extra\040fields\n(splist_tnrs\040<-\040splist_tnrs[,\040!names(splist_tnrs)\040%in%\040c(\"matchedName\",\040\"annotations\",\040\"uri\")])\n\n#\040At\040this\040point\040pay\040attention\040to\040the\040scores.\040They\040suggest\040that\040there\040were\040no\040perfect\040matches,\040but\040almost\040all\040were\040extremely\040close,\040ranging\040from\040`0.77`\040to\040`0.99`\040(1\040being\040the\040highest).\040\n#\040Let\'s\040assume\040the\040names\040in\040the\040\"acceptedname\"\040column\040are\040correct\040(and\040they\040should\040be\040in\040most\040cases).\n\n#\040So\040here\'s\040our\040updated\040species\040list\n(splist\040<-\040as.character(splist_tnrs$acceptedname))\n```
 254

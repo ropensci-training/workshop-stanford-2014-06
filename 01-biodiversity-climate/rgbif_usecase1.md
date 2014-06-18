@@ -32,6 +32,9 @@ data(wrld_simpl)
 
 ### Get GBIF data using the rOpenSci package rgbif.
 
+We obtain data on members of the Genus [Bradypus](http://en.wikipedia.org/wiki/Three-toed_sloth)
+![Bradypus](http://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Bradypus.jpg/220px-Bradypus.jpg)
+
 
 ```r
 df <- occurrencelist(scientificname = 'bradypus*', coordinatestatus = TRUE, maxresults = 500)

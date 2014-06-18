@@ -639,11 +639,11 @@ A
 1026
 1
 262153
-52
-.cache/resolvenames_787ec3a7eed7282b2463a68bd3234045
+47
+.cache/makemap_91731e83db568c725eda85e27b24cd41
 16
 1
 262153
-560
-\n```r\n#\040The\040tnrs\040function\040accepts\040a\040vector\040of\0401\040or\040more\nsplist_tnrs\040<-\040tnrs(query\040=\040splist,\040getpost\040=\040\"POST\")\n\n#\040Remove\040some\040extra\040fields\n(splist_tnrs\040<-\040splist_tnrs[,\040!names(splist_tnrs)\040%in%\040c(\"matchedName\",\040\"annotations\",\040\"uri\")])\n\n#\040Note\040the\040scores.\040They\040suggest\040that\040there\040were\040no\040perfect\040matches,\040but\040they\040were\040all\040very\040close,\040ranging\040from\0400.77\040to\0400.99\040(1\040is\040the\040highest).\040\n#\040Let\'s\040assume\040the\040names\040in\040the\040\"acceptedName\"\040column\040are\040correct\040(and\040they\040should\040be).\n\n#\040So\040here\'s\040our\040updated\040species\040list\n(splist\040<-\040as.character(splist_tnrs$acceptedname))\n```
+98
+\n```r\ngbifmap_list(occur_list)\040+\040\ncoord_equal()\n```\n\n![plot\040of\040chunk\040makemap](figure/makemap.png)\040
 254
