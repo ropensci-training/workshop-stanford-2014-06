@@ -19,7 +19,7 @@ You'll be able to copy-paste all of the code provided here directly into RStudio
 
 |Topic|Time|
 |---------------|-------|
-|**Introduction to reproducibility** - [web page](http://ropensci.github.io/reproducibility-guide/) [slides](http://ropensci.github.io//workshop-stanford-2014-06/powerpoint) Ciera Martinez | 14:00 - 15:00 |
+|**Introduction to reproducibility** - [web page](http://ropensci.github.io/reproducibility-guide/) Ciera Martinez | 14:00 - 15:00 |
 |**Introduction to rOpenSci** [slides](http://ropensci.github.io/workshop-stanford-2014-06/00-introduction/intro_slides/index.html) | 15: 15:15 |
 |**rOpenSci demos 1** *Biodiversity records, taxonomic name resolution, climate mapping*  | 15:15-15:35 |
 | 1. [Niche modeling (rgbif)](https://github.com/ropensci/workshop-stanford-2014-06/blob/master/01-biodiversity-climate/rgbif_usecase1.md) | |
