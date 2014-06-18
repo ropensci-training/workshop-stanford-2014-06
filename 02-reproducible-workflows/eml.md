@@ -87,7 +87,7 @@ dats <- data.set(dat, # the data
 abstract <- "Landings data for several species by year, from the OpenFisheries database"
 ```
 
-### Login into figshare and upload your data + metadata
+### Login into figshare
 
 ```r
 # Logging into figshare
