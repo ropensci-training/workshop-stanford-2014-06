@@ -32,6 +32,8 @@ facet_wrap( ~ a3_code, scales = "free_y") +
 ggtitle("Fisheries trends for commercially important Anchovy fisheries")
 ```
 
+![Fisheries collapse](eml.png)
+
 ### Now we manipulate the data into a useful format with variables typecast correctly
 ```r
 library(dplyr)
@@ -66,7 +68,6 @@ dats <- data.set(dat, col.defs = col.defs, unit.defs = unit.defs)
 ```
 
 ```r
-## In EML-speak, description is means something different. 
 # The overall description of the EML file is the abstract (Think of this as a "data publication") 
 
 abstract <- "Landings data for several species by year, from the OpenFisheries database"
@@ -88,8 +89,10 @@ options(FigsharePrivateKey = "dGLFrnXeBjXi6qdsO6vwAg")
 ## Now we are ready to write out the `EML`
 
 ```r
-eml_write(dat = dats, title = "Fisheries Landings Data for cod", abstract = abstract, 
-    creator = "Karthik Ram <karthik@ropensci.org>", file = "landings.xml")
+eml_write(dat = dats, title = "Fisheries Landings Data for cod", 
+	abstract = abstract, 
+    creator = "Karthik Ram <karthik@ropensci.org>", 
+    file = "landings.xml")
  ```
  
 ## and upload the data to figshare
