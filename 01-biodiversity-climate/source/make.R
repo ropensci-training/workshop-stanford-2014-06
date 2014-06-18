@@ -1,4 +1,6 @@
 library(stringr)
+library(knitr)
+library(plyr)
 if(str_detect(getwd(), "source")) {
 
 files <- dir(pattern = ".Rmd")

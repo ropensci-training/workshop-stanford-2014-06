@@ -1,16 +1,22 @@
-## `rgbif` : Ecological niche modelling (aka species distribution modelling)
+## `rgbif` : Ecological niche modelling (species distribution modelling)
 
 In this example we plot actual occurrence data for *Bradypus* species against a single predictor variable, `BIO1` (annual mean temperature). This is only ont step in a species distribution modelling nworkflow.
 
-This example can be done using BISON data as well with our rbison package.
+This example can be done using BISON data as well with our `rbison` package.
 
-```{r defaults, eval = TRUE, echo = FALSE}
-opts_chunk$set(comment=NA, warning=FALSE, message=FALSE, fig.width=7, fig.height=6)
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  error = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  tidy = FALSE
+)
 ```
 
 ### Load libraries
 
-```{r load, comment = NA, cache = TRUE}
+```{r load, comment = NA, cache = TRUE, results = "hide"}
 library(rgbif)
 library(dismo)
 library(maptools)
