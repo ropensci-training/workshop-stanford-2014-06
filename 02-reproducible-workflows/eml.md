@@ -112,7 +112,7 @@ eml_write(dat = dats,
     file = "landings.xml") # This is the file we create
  ```
  
-##  and finally we upload the data/metadata to figshare 
+###  and finally we upload the data/metadata to figshare 
 
  ```r
 eml_publish("landings.xml", 
